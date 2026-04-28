@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Qubrix.Gear — Technical Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 22 22" fill="none" width="20" height="20">
+        <path d="M11 2L18 6.5V15.5L11 20L4 15.5V6.5L11 2Z" stroke="white" stroke-width="1.4"/>
+        <path d="M11 7L15 9.5V14.5L11 17L7 14.5V9.5L11 7Z" fill="white"/>
+      </svg>
+    </div>
+    Qubrix.Gear
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('all-products')" id="nav-all-products">All Products</a></li>
+    <li><a onclick="scrollToId('reviews')">Reviews</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-search">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search gear..." id="main-search" oninput="handleSearch(this.value)"/>
+    </div>
+    <div class="icon-btn" onclick="toggleWishlistPage()" title="Wishlist">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    </div>
+    <div class="icon-btn" onclick="toggleCart()" title="Cart">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span class="cart-count" id="cart-count">0</span>
+    </div>
+  </div>
+</nav>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap"><div class="marquee-track" id="marquee-track"></div></div>
+
+<!-- ═══ HOME ═══ -->
+<div class="page active" id="page-home">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides-wrap" id="hero-slides"></div>
+  <div class="hero-controls" id="hero-dots"></div>
+  <div class="hero-arrows">
+    <button class="hero-arrow" onclick="slideHero(-1)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="hero-arrow" onclick="slideHero(1)"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-icon">🚀</div><div><div class="stat-val">18+</div><div class="stat-label">Premium Products</div></div></div>
+  <div class="stat-item"><div class="stat-icon">📦</div><div><div class="stat-val">Fast</div><div class="stat-label">Doorstep Delivery</div></div></div>
+  <div class="stat-item"><div class="stat-icon">💬</div><div><div class="stat-val">WhatsApp</div><div class="stat-label">Instant Support</div></div></div>
+  <div class="stat-item"><div class="stat-icon">✅</div><div><div class="stat-val">100%</div><div class="stat-label">Genuine Products</div></div></div>
+</div>
+
+<!-- TOP PRODUCTS -->
+<section class="section" id="top-products">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Our Collection</div>
+      <h2 class="section-title">Top <span>Products</span></h2>
+      <p class="section-sub">Bestselling gear — curated for every tech enthusiast</p>
+    </div>
+  </div>
+  <div class="cat-row" id="home-cats">
+    <div class="cat-pill active" onclick="filterHome('all',this)">🛒 All</div>
+    <div class="cat-pill" onclick="filterHome('earphones',this)">🎧 Earphones</div>
+    <div class="cat-pill" onclick="filterHome('watches',this)">⌚ Watches</div>
+    <div class="cat-pill" onclick="filterHome('accessories',this)">🔌 Accessories</div>
+    <div class="cat-pill" onclick="filterHome('drones',this)">🚁 Drones</div>
+    <div class="cat-pill" onclick="filterHome('keyboards',this)">⌨️ Keyboards</div>
+  </div>
+  <div class="products-grid" id="top-products-grid"></div>
+  <div class="show-more-wrap">
+    <button class="btn-primary" onclick="showPage('all-products')">
+      View All Products <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- OFFERS -->
+<div class="offer-section" id="offers">
+  <div class="section-tag">Limited Time Deals</div>
+  <h2 class="section-title" style="margin-bottom:28px;">Hot <span>Offers</span></h2>
+  <div class="offer-grid">
+    <div class="offer-card a">
+      <div>
+        <div class="offer-label">⚡ Active Deal</div>
+        <h3 class="offer-card-title">BoAt Earphones<br>₹100–200 BELOW MRP!</h3>
+        <p class="offer-card-sub">Any BoAt earphone model at unbeatable price. Message us on WhatsApp and grab yours before stock runs out!</p>
+        <button class="btn-primary" onclick="openWhatsApp('BoAt Earphones discount deal')">Claim on WhatsApp <span id="wa-icon1"></span></button>
+      </div>
+      <div class="offer-emoji">🎵</div>
+    </div>
+    <div class="offer-card b">
+      <div>
+        <div class="offer-label" style="background:rgba(255,107,53,0.14);border-color:rgba(255,107,53,0.3);color:var(--accent2);">🎁 Free Gift</div>
+        <h3 class="offer-card-title">Buy Any AirPods →<br>Silicon Cover <span style="color:var(--accent2);">FREE!</span></h3>
+        <p class="offer-card-sub">Order any AirPods model and get a premium silicon protective cover absolutely FREE. Limited stock only!</p>
+        <button class="btn-primary" style="background:var(--accent2);" onclick="openWhatsApp('AirPods + Free Silicon Cover offer')">Get Free Cover</button>
+      </div>
+      <div class="offer-emoji">🎧</div>
+    </div>
+  </div>
+</div>
+
+<!-- BRANDS -->
+<div class="brands-strip">
+  <div class="brands-label">Brands We Carry</div>
+  <div style="overflow:hidden;"><div class="brands-track" id="brands-track"></div></div>
+</div>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Testimonials</div>
+      <h2 class="section-title">What Customers <span>Say</span></h2>
+      <p class="section-sub">Real buyers, real feedback — no fake reviews</p>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">AirPods Pro 2 liya — quality ekdum mast hai is price mein. Fast delivery, proper packaging. Qubrix.Gear 100% trustworthy hai!</p>
+      <div class="review-author"><div class="review-avatar">RK</div><div><div class="review-name">Rahul K.</div><div class="review-loc">Delhi, India</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Samsung Galaxy Watch bilkul as described. WhatsApp pe order karna bahut easy tha — instant reply mila. Dobara zaroor order karunga!</p>
+      <div class="review-author"><div class="review-avatar">PS</div><div><div class="review-name">Priya S.</div><div class="review-loc">Chandigarh, India</div></div></div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">Drone ki camera quality ne mind blow kar diya! Communication throughout achi rahi. Very trustworthy store — highly recommend!</p>
+      <div class="review-author"><div class="review-avatar">AM</div><div><div class="review-name">Arjun M.</div><div class="review-loc">Mumbai, India</div></div></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /home -->
+
+<!-- ═══ ALL PRODUCTS ═══ -->
+<div class="page" id="page-all-products">
+  <div class="page-header">
+    <button class="back-btn" onclick="showPage('home')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</button>
+    <h1>All Products</h1>
+    <p style="color:var(--muted);margin-top:5px;font-size:0.86rem;" id="all-count">Showing all products</p>
+  </div>
+  <div class="filter-bar">
+    <div class="filter-chip active" onclick="filterAll('all',this)">🛒 All</div>
+    <div class="filter-chip" onclick="filterAll('earphones',this)">🎧 Earphones</div>
+    <div class="filter-chip" onclick="filterAll('watches',this)">⌚ Watches</div>
+    <div class="filter-chip" onclick="filterAll('accessories',this)">🔌 Accessories</div>
+    <div class="filter-chip" onclick="filterAll('drones',this)">🚁 Drones</div>
+    <div class="filter-chip" onclick="filterAll('keyboards',this)">⌨️ Keyboards</div>
+  </div>
+  <div class="all-products-grid" id="all-products-grid"></div>
+</div>
+
+<!-- ═══ PRODUCT DETAIL ═══ -->
+<div class="page" id="page-product">
+  <div class="product-detail" id="product-detail-content"></div>
+</div>
+
+<!-- ═══ WISHLIST ═══ -->
+<div class="page" id="page-wishlist">
+  <div style="padding:36px 5vw;">
+    <button class="back-btn" onclick="showPage('home')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</button>
+    <div style="margin-bottom:28px;"><div class="section-tag">Saved Items</div><h1 style="font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;">Your Wishlist ❤️</h1></div>
+    <div class="products-grid" id="wishlist-grid"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo-row" onclick="showPage('home')">
+        <div class="footer-logo-ico"><svg viewBox="0 0 22 22" fill="none" width="17" height="17"><path d="M11 2L18 6.5V15.5L11 20L4 15.5V6.5L11 2Z" stroke="white" stroke-width="1.4"/><path d="M11 7L15 9.5V14.5L11 17L7 14.5V9.5L11 7Z" fill="white"/></svg></div>
+        Qubrix.Gear
+      </div>
+      <p class="footer-desc">Your go-to technical store for premium gadgets, accessories & smart devices. Est. 2026.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('all-products')">All Products</a></li>
+        <li><a onclick="filterAll('earphones',null);showPage('all-products')">Earphones</a></li>
+        <li><a onclick="filterAll('watches',null);showPage('all-products')">Watches</a></li>
+        <li><a onclick="filterAll('drones',null);showPage('all-products')">Drones</a></li>
+        <li><a onclick="filterAll('accessories',null);showPage('all-products')">Accessories</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Info</div>
+      <ul class="footer-links">
+        <li><a>About Us</a></li>
+        <li><a>Return Policy</a></li>
+        <li><a>FAQ</a></li>
+        <li><a onclick="scrollToId('reviews')">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a onclick="openWhatsApp('Hello Qubrix.Gear!')">💬 WhatsApp Us</a></li>
+        <li><a>📍 India</a></li>
+        <li><a>📦 Fast Delivery</a></li>
+        <li><a>Est. 2026</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Qubrix.Gear — Technical Store. All rights reserved.</span>
+    <span>Made with ❤️ in India</span>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-hd">
+    <span class="cart-title">Your Cart 🛒</span>
+    <button class="cart-close" onclick="toggleCart()"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="cart-items" id="cart-items-list"></div>
+  <div class="cart-foot">
+    <div class="cart-total"><span>Total</span><span id="cart-total">₹0</span></div>
+    <button class="btn-wa" onclick="checkoutCart()">
+      <svg width="17" height="17" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Order on WhatsApp
+    </button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
