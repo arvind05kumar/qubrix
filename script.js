@@ -1,24 +1,24 @@
 const WA_SVG=`<svg width="14" height="14" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>`;
 
 const products=[
-  {id:'airpods-2nd',name:'AirPods 2nd Gen',category:'earphones',price:2000,emoji:'🎧',badge:'Popular',desc:'Apple AirPods 2nd Generation with H1 chip, crystal clear audio, seamless Apple device connectivity. Up to 5 hours listening time.',specs:[['Type','In-ear Wireless'],['Chip','H1'],['Battery','5h + 24h case'],['BT','5.0']]},
-  {id:'airpods-pro-2',name:'AirPods Pro 2 (16th Gen)',category:'earphones',price:2599,emoji:'🎧',badge:'🔥 Hot',desc:'AirPods Pro 2 with adaptive ANC, Transparency mode, Personalized Spatial Audio, and USB-C charging. Best-in-class sound.',specs:[['Type','In-ear ANC'],['Chip','H2'],['Battery','6h + 30h case'],['BT','5.3']]},
-  {id:'airpods-4-anc',name:'AirPods 4 ANC',category:'earphones',price:3000,emoji:'🎧',badge:'New',desc:'AirPods 4 with Active Noise Cancellation — most advanced open-ear design. Personalized spatial audio with dynamic head tracking.',specs:[['Type','Open-ear ANC'],['Chip','H2'],['Battery','5h + 30h'],['BT','5.3']]},
-  {id:'airpods-bundle',name:'AirPods Pro 2 + AirPods 2nd + Cover',category:'earphones',price:3000,emoji:'🎁',badge:'Bundle',desc:'Special combo — AirPods Pro 2, AirPods 2nd Gen, and Silicon Protective Case. Best value bundle!',specs:[['Includes','AirPods Pro 2'],['','AirPods 2nd Gen'],['','Silicon Cover'],['Value','Huge Savings']]},
-  {id:'samsung-watch',name:'Samsung Galaxy Watch',category:'watches',price:2499,emoji:'⌚',badge:'Samsung',desc:'Samsung Galaxy Watch with advanced health tracking, blood oxygen monitoring, sleep tracking, rotating bezel. Works with Android & iOS.',specs:[['Display','AMOLED'],['Battery','40 hrs'],['Sensors','SpO2, HR, GPS'],['Water','5ATM']]},
-  {id:'apple-watch-11',name:'Apple Watch Series 11',category:'watches',price:1500,priceLabel:'₹1,500–2,000',emoji:'⌚',badge:'Apple',desc:'Apple Watch Series 11 with crash detection, emergency SOS, and brightest Always-On Retina display. Multiple variants available.',specs:[['Display','LTPO OLED'],['Battery','18 hrs'],['Chip','S11'],['Size','41/45mm']]},
-  {id:'apple-ultra',name:'Apple Ultra Watch (Ultra Series)',category:'watches',price:1500,priceLabel:'₹1,500–2,000',emoji:'⌚',badge:'Ultra',desc:'Most rugged Apple Watch — 60-hour battery life, Precision GPS, extra-large display for extreme adventures.',specs:[['Display','LTPO OLED'],['Battery','60 hrs'],['Case','Titanium'],['GPS','Dual-freq']]},
-  {id:'fossil-gen9',name:'Fossil Gen 9 Chain Watch',category:'watches',price:1500,emoji:'⌚',badge:'Fossil',desc:'Fossil Gen 9 smartwatch with classic chain design. Wear OS, Google Assistant, NFC payments, elegant look.',specs:[['OS','Wear OS'],['Display','AMOLED 1.28"'],['Battery','24 hrs'],['Features','NFC, GPS']]},
-  {id:'potronics-kb',name:'Potronics Keyboard',category:'keyboards',price:1100,emoji:'⌨️',badge:'Wireless',desc:'Potronics wireless keyboard with multi-device pairing, quiet key switches, 3-month battery. All OS compatible.',specs:[['Type','Wireless BT'],['Battery','~3 months'],['Layout','Full Size'],['OS','Universal']]},
-  {id:'boat-earphones',name:'BoAt Earphones (Any Model)',category:'earphones',price:null,priceLabel:'₹100–200 LESS',emoji:'🎵',badge:'💸 Best Deal',desc:'Any BoAt earphone at ₹100–200 below market price! Wired, wireless, neckbands — multiple models.',specs:[['Brand','BoAt'],['Discount','₹100–200 below MRP'],['Models','Multiple'],['Order','Via WhatsApp']]},
-  {id:'mivi-earphones',name:'Mivi Earphones (2 Colors)',category:'earphones',price:1400,emoji:'🎵',badge:'2 Colors',desc:'Mivi earphones in two vibrant colors. Deep bass, comfortable fit, powerful mic. Black & White available.',specs:[['Type','Wired/Wireless'],['Colors','2 available'],['Mic','Built-in'],['Price','₹1,400']]},
-  {id:'fireboult',name:'Fireboult Earphone',category:'earphones',price:1100,emoji:'🎵',badge:'Value Pick',desc:'Fireboult earphones with powerful bass, 25+ hr battery, IPX5 water resistance, Low Latency Gaming mode.',specs:[['Type','TWS Wireless'],['Battery','25+ hrs'],['Water','IPX5'],['Latency','Low Gaming']]},
-  {id:'apple-adaptor',name:'Apple Adaptor 20W Original',category:'accessories',price:1200,emoji:'🔌',badge:'Original',desc:'Original Apple 20W USB-C Power Adapter — fast charging for iPhone 8 and later. Compact and portable.',specs:[['Output','20W USB-C'],['Compat.','iPhone 8+, iPad'],['Form','Compact'],['Warranty','Apple Orig.']]},
-  {id:'privacy-glass',name:'Privacy Tempered Glass',category:'accessories',price:300,emoji:'🛡️',badge:'Universal',desc:'Premium privacy tempered glass for iPhone & Android. 9H hardness, anti-spy 45° filter, oleophobic coating.',specs:[['Hardness','9H'],['Type','Anti-spy'],['Compat.','iPhone & Android'],['Thickness','0.33mm']]},
-  {id:'earpods-typec',name:'Apple EarPods (Type-C)',category:'earphones',price:1000,emoji:'🎧',badge:'Type-C',desc:'Apple EarPods USB-C — crisp Apple audio with inline remote and mic. For all USB-C iPhones and iPads.',specs:[['Connector','USB-C'],['Brand','Apple'],['Mic','Built-in inline'],['Compat.','USB-C']]},
-  {id:'earpods-lightning',name:'Apple EarPods (Lightning)',category:'earphones',price:1000,emoji:'🎧',badge:'Lightning',desc:'Apple EarPods Lightning — classic Apple sound for iPhone 14 and earlier, Lightning iPad.',specs:[['Connector','Lightning'],['Brand','Apple'],['Mic','Built-in inline'],['Compat.','Lightning']]},
-  {id:'wires',name:'Charging Wires (Type-C & Samsung)',category:'accessories',price:400,emoji:'🔋',badge:'Multi-Pack',desc:'High-quality Type-C wires for Apple and Samsung. Fast charge, fast data, durable braided design.',specs:[['Types','Apple, Samsung'],['Speed','Fast Charge'],['Build','Braided'],['Price','₹400 each']]},
-  {id:'drone',name:'Drone with Camera',category:'drones',price:3000,emoji:'🚁',badge:'🔥 Bestseller',desc:'Feature-packed camera drone — HD aerial photography, stable hover, one-key takeoff/landing, headless mode.',specs:[['Camera','HD'],['Flight','~15 min'],['Range','~100m'],['Features','Headless, Auto-hover']]}
+  {id:'airpods-2nd',name:'AirPods 2nd Gen',category:'earphones',price:2000,emoji:'',badge:'Popular',desc:'Apple AirPods 2nd Generation with H1 chip, crystal clear audio, seamless Apple device connectivity. Up to 5 hours listening time.',specs:[['Type','In-ear Wireless'],['Chip','H1'],['Battery','5h + 24h case'],['BT','5.0']]},
+  {id:'airpods-pro-2',name:'AirPods Pro 2 (16th Gen)',category:'earphones',price:2599,emoji:'',badge:'Hot',desc:'AirPods Pro 2 with adaptive ANC, Transparency mode, Personalized Spatial Audio, and USB-C charging. Best-in-class sound.',specs:[['Type','In-ear ANC'],['Chip','H2'],['Battery','6h + 30h case'],['BT','5.3']]},
+  {id:'airpods-4-anc',name:'AirPods 4 ANC',category:'earphones',price:3000,emoji:'',badge:'New',desc:'AirPods 4 with Active Noise Cancellation — most advanced open-ear design. Personalized spatial audio with dynamic head tracking.',specs:[['Type','Open-ear ANC'],['Chip','H2'],['Battery','5h + 30h'],['BT','5.3']]},
+  {id:'airpods-bundle',name:'AirPods Pro 2 + AirPods 2nd + Cover',category:'earphones',price:3000,emoji:'',badge:'Bundle',desc:'Special combo — AirPods Pro 2, AirPods 2nd Gen, and Silicon Protective Case. Best value bundle!',specs:[['Includes','AirPods Pro 2'],['','AirPods 2nd Gen'],['','Silicon Cover'],['Value','Huge Savings']]},
+  {id:'samsung-watch',name:'Samsung Galaxy Watch',category:'watches',price:2499,emoji:'',badge:'Samsung',desc:'Samsung Galaxy Watch with advanced health tracking, blood oxygen monitoring, sleep tracking, rotating bezel. Works with Android & iOS.',specs:[['Display','AMOLED'],['Battery','40 hrs'],['Sensors','SpO2, HR, GPS'],['Water','5ATM']]},
+  {id:'apple-watch-11',name:'Apple Watch Series 11',category:'watches',price:1500,priceLabel:'₹1,500–2,000',emoji:'',badge:'Apple',desc:'Apple Watch Series 11 with crash detection, emergency SOS, and brightest Always-On Retina display. Multiple variants available.',specs:[['Display','LTPO OLED'],['Battery','18 hrs'],['Chip','S11'],['Size','41/45mm']]},
+  {id:'apple-ultra',name:'Apple Ultra Watch (Ultra Series)',category:'watches',price:1500,priceLabel:'₹1,500–2,000',emoji:'',badge:'Ultra',desc:'Most rugged Apple Watch — 60-hour battery life, Precision GPS, extra-large display for extreme adventures.',specs:[['Display','LTPO OLED'],['Battery','60 hrs'],['Case','Titanium'],['GPS','Dual-freq']]},
+  {id:'fossil-gen9',name:'Fossil Gen 9 Chain Watch',category:'watches',price:1500,emoji:'',badge:'Fossil',desc:'Fossil Gen 9 smartwatch with classic chain design. Wear OS, Google Assistant, NFC payments, elegant look.',specs:[['OS','Wear OS'],['Display','AMOLED 1.28"'],['Battery','24 hrs'],['Features','NFC, GPS']]},
+  {id:'potronics-kb',name:'Potronics Keyboard',category:'keyboards',price:1100,emoji:'',badge:'Wireless',desc:'Potronics wireless keyboard with multi-device pairing, quiet key switches, 3-month battery. All OS compatible.',specs:[['Type','Wireless BT'],['Battery','~3 months'],['Layout','Full Size'],['OS','Universal']]},
+  {id:'boat-earphones',name:'BoAt Earphones (Any Model)',category:'earphones',price:null,priceLabel:'₹100–200 LESS',emoji:'',badge:'Best Deal',desc:'Any BoAt earphone at ₹100–200 below market price! Wired, wireless, neckbands — multiple models.',specs:[['Brand','BoAt'],['Discount','₹100–200 below MRP'],['Models','Multiple'],['Order','Via WhatsApp']]},
+  {id:'mivi-earphones',name:'Mivi Earphones (2 Colors)',category:'earphones',price:1400,emoji:'',badge:'2 Colors',desc:'Mivi earphones in two vibrant colors. Deep bass, comfortable fit, powerful mic. Black & White available.',specs:[['Type','Wired/Wireless'],['Colors','2 available'],['Mic','Built-in'],['Price','₹1,400']]},
+  {id:'fireboult',name:'Fireboult Earphone',category:'earphones',price:1100,emoji:'',badge:'Value Pick',desc:'Fireboult earphones with powerful bass, 25+ hr battery, IPX5 water resistance, Low Latency Gaming mode.',specs:[['Type','TWS Wireless'],['Battery','25+ hrs'],['Water','IPX5'],['Latency','Low Gaming']]},
+  {id:'apple-adaptor',name:'Apple Adaptor 20W Original',category:'accessories',price:1200,emoji:'',badge:'Original',desc:'Original Apple 20W USB-C Power Adapter — fast charging for iPhone 8 and later. Compact and portable.',specs:[['Output','20W USB-C'],['Compat.','iPhone 8+, iPad'],['Form','Compact'],['Warranty','Apple Orig.']]},
+  {id:'privacy-glass',name:'Privacy Tempered Glass',category:'accessories',price:300,emoji:'',badge:'Universal',desc:'Premium privacy tempered glass for iPhone & Android. 9H hardness, anti-spy 45° filter, oleophobic coating.',specs:[['Hardness','9H'],['Type','Anti-spy'],['Compat.','iPhone & Android'],['Thickness','0.33mm']]},
+  {id:'earpods-typec',name:'Apple EarPods (Type-C)',category:'earphones',price:1000,emoji:'',badge:'Type-C',desc:'Apple EarPods USB-C — crisp Apple audio with inline remote and mic. For all USB-C iPhones and iPads.',specs:[['Connector','USB-C'],['Brand','Apple'],['Mic','Built-in inline'],['Compat.','USB-C']]},
+  {id:'earpods-lightning',name:'Apple EarPods (Lightning)',category:'earphones',price:1000,emoji:'',badge:'Lightning',desc:'Apple EarPods Lightning — classic Apple sound for iPhone 14 and earlier, Lightning iPad.',specs:[['Connector','Lightning'],['Brand','Apple'],['Mic','Built-in inline'],['Compat.','Lightning']]},
+  {id:'wires',name:'Charging Wires (Type-C & Samsung)',category:'accessories',price:400,emoji:'',badge:'Multi-Pack',desc:'High-quality Type-C wires for Apple and Samsung. Fast charge, fast data, durable braided design.',specs:[['Types','Apple, Samsung'],['Speed','Fast Charge'],['Build','Braided'],['Price','₹400 each']]},
+  {id:'drone',name:'Drone with Camera',category:'drones',price:3000,emoji:'',badge:'Bestseller',desc:'Feature-packed camera drone — HD aerial photography, stable hover, one-key takeoff/landing, headless mode.',specs:[['Camera','HD'],['Flight','~15 min'],['Range','~100m'],['Features','Headless, Auto-hover']]}
 ];
 
 const WA='917488900188';
@@ -28,7 +28,7 @@ let currentFilter='all';
 
 // MARQUEE
 function buildMarquee(){
-  const items=['🔥 Drone with Camera — ₹3,000','⚡ BoAt Earphones ₹100–200 Below MRP!','🎧 AirPods Pro 2 — ₹2,599','⌚ Apple Watch Series 11 — From ₹1,500','🎁 Buy AirPods → Silicon Cover FREE!','🛒 WhatsApp Order — Instant Reply!','✅ 100% Genuine Products','🚀 Samsung Galaxy Watch — ₹2,499'];
+  const items=['Drone with Camera — ₹3,000','BoAt Earphones ₹100–200 Below MRP!','AirPods Pro 2 — ₹2,599','Apple Watch Series 11 — From ₹1,500','Buy AirPods → Silicon Cover FREE!','WhatsApp Order — Instant Reply!','100% Genuine Products','Samsung Galaxy Watch — ₹2,499'];
   const t=document.getElementById('marquee-track');
   t.innerHTML=[...items,...items].map(i=>`<span class="marquee-item"><span class="m-dot"></span>${i}</span>`).join('');
 }
@@ -42,9 +42,9 @@ function buildBrands(){
 
 // HERO
 const heroData=[
-  {id:'airpods-pro-2',emoji:'🎧',tag:'⚡ Most Popular',title:'AirPods\n<span>Pro 2</span>',sub:'Adaptive ANC, Spatial Audio, USB-C charging. Experience sound like never before.',price:'₹2,599',stats:[{v:'ANC',l:'Noise Cancelling'},{v:'H2',l:'Apple Chip'},{v:'36h+',l:'Total Battery'}]},
-  {id:'drone',emoji:'🚁',tag:'🔥 Bestseller',title:'Drone with\n<span>Camera</span>',sub:'HD aerial photography, stable hover, one-key controls. Your next adventure awaits!',price:'₹3,000',stats:[{v:'HD',l:'Camera'},{v:'~15min',l:'Flight Time'},{v:'~100m',l:'Range'}]},
-  {id:'samsung-watch',emoji:'⌚',tag:'🏆 Premium Pick',title:'Samsung\n<span>Galaxy Watch</span>',sub:'Health tracking, AMOLED display, 40-hour battery. Smart living, redefined.',price:'₹2,499',stats:[{v:'AMOLED',l:'Display'},{v:'40hrs',l:'Battery'},{v:'5ATM',l:'Water Proof'}]},
+  {id:'airpods-pro-2',emoji:'',tag:'Most Popular',title:'AirPods\n<span>Pro 2</span>',sub:'Adaptive ANC, Spatial Audio, USB-C charging. Experience sound like never before.',price:'₹2,599',stats:[{v:'ANC',l:'Noise Cancelling'},{v:'H2',l:'Apple Chip'},{v:'36h+',l:'Total Battery'}]},
+  {id:'drone',emoji:'',tag:'Bestseller',title:'Drone with\n<span>Camera</span>',sub:'HD aerial photography, stable hover, one-key controls. Your next adventure awaits!',price:'₹3,000',stats:[{v:'HD',l:'Camera'},{v:'~15min',l:'Flight Time'},{v:'~100m',l:'Range'}]},
+  {id:'samsung-watch',emoji:'',tag:'Premium Pick',title:'Samsung\n<span>Galaxy Watch</span>',sub:'Health tracking, AMOLED display, 40-hour battery. Smart living, redefined.',price:'₹2,499',stats:[{v:'AMOLED',l:'Display'},{v:'40hrs',l:'Battery'},{v:'5ATM',l:'Water Proof'}]},
 ];
 let hIdx=0,hTimer=null;
 
@@ -185,24 +185,24 @@ function saveCart(){localStorage.setItem('qg_cart',JSON.stringify(cart));updateC
 function addToCart(id){
   const p=products.find(x=>x.id===id);if(!p)return;
   const e=cart.find(x=>x.id===id);if(e)e.qty++;else cart.push({id,qty:1,name:p.name,price:p.price,emoji:p.emoji});
-  saveCart();showToast(`✅ ${p.name} added!`);
+  saveCart();showToast(`${p.name} added!`);
 }
 function removeFromCart(id){cart=cart.filter(x=>x.id!==id);saveCart();}
 function updateCartUI(){
   const count=cart.reduce((s,x)=>s+x.qty,0);
   document.getElementById('cart-count').textContent=count;
   const list=document.getElementById('cart-items-list');
-  if(!cart.length){list.innerHTML=`<div class="cart-empty"><div style="font-size:2.5rem;margin-bottom:10px;">🛒</div><p>Cart is empty</p></div>`;document.getElementById('cart-total').textContent='₹0';return;}
+  if(!cart.length){list.innerHTML=`<div class="cart-empty"><div style="font-size:2.5rem;margin-bottom:10px;"></div><p>Cart is empty</p></div>`;document.getElementById('cart-total').textContent='₹0';return;}
   let total=0;
   list.innerHTML=cart.map(item=>{const sub=(item.price||0)*item.qty;total+=sub;return`<div class="cart-item"><div class="cart-item-img">${item.emoji}</div><div class="cart-item-info"><div class="cart-item-name">${item.name}${item.qty>1?` x${item.qty}`:''}</div><div class="cart-item-price">${item.price?'₹'+sub.toLocaleString('en-IN'):'Via WhatsApp'}</div></div><button class="cart-item-rm" onclick="removeFromCart('${item.id}')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>`;}).join('');
   document.getElementById('cart-total').textContent=total>0?'₹'+total.toLocaleString('en-IN'):'Confirm on WhatsApp';
 }
 function toggleCart(){document.getElementById('cart-drawer').classList.toggle('open');document.getElementById('cart-overlay').classList.toggle('open');}
 function checkoutCart(){
-  if(!cart.length){showToast('🛒 Cart is empty!');return;}
+  if(!cart.length){showToast('Cart is empty!');return;}
   const items=cart.map(x=>`• ${x.name} x${x.qty}${x.price?' (₹'+(x.price*x.qty).toLocaleString('en-IN')+')':''}`).join('\n');
   const total=cart.reduce((s,x)=>s+(x.price||0)*x.qty,0);
-  const msg=`Hello Qubrix.Gear! 👋\n\nOrder:\n${items}\n\nTotal: ₹${total.toLocaleString('en-IN')}\n\nPlease confirm! 🙏`;
+  const msg=`Hello Qubrix.Gear!\n\nOrder:\n${items}\n\nTotal: ₹${total.toLocaleString('en-IN')}\n\nPlease confirm!`;
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
@@ -210,14 +210,14 @@ function checkoutCart(){
 function saveWishlist(){localStorage.setItem('qg_wishlist',JSON.stringify(wishlist));}
 function toggleWishlist(id,btn){
   const i=wishlist.indexOf(id);
-  if(i===-1){wishlist.push(id);btn.classList.add('active');btn.querySelector('svg').setAttribute('fill','#e63329');btn.querySelector('svg').setAttribute('stroke','#e63329');showToast('❤️ Added to Wishlist!');}
-  else{wishlist.splice(i,1);btn.classList.remove('active');btn.querySelector('svg').setAttribute('fill','none');btn.querySelector('svg').setAttribute('stroke','#aaa');showToast('💔 Removed');}
+  if(i===-1){wishlist.push(id);btn.classList.add('active');btn.querySelector('svg').setAttribute('fill','#e63329');btn.querySelector('svg').setAttribute('stroke','#e63329');showToast('Added to Wishlist!');}
+  else{wishlist.splice(i,1);btn.classList.remove('active');btn.querySelector('svg').setAttribute('fill','none');btn.querySelector('svg').setAttribute('stroke','#aaa');showToast('Removed');}
   saveWishlist();
 }
 function toggleWishlistDetail(id,btn){
   const i=wishlist.indexOf(id);
-  if(i===-1){wishlist.push(id);btn.querySelector('svg').setAttribute('fill','#e63329');btn.querySelector('svg').setAttribute('stroke','#e63329');btn.innerHTML=btn.innerHTML.replace('Wishlist','Wishlisted');showToast('❤️ Added!');}
-  else{wishlist.splice(i,1);btn.querySelector('svg').setAttribute('fill','none');btn.querySelector('svg').setAttribute('stroke','currentColor');btn.innerHTML=btn.innerHTML.replace('Wishlisted','Wishlist');showToast('💔 Removed');}
+  if(i===-1){wishlist.push(id);btn.querySelector('svg').setAttribute('fill','#e63329');btn.querySelector('svg').setAttribute('stroke','#e63329');btn.innerHTML=btn.innerHTML.replace('Wishlist','Wishlisted');showToast('Added!');}
+  else{wishlist.splice(i,1);btn.querySelector('svg').setAttribute('fill','none');btn.querySelector('svg').setAttribute('stroke','currentColor');btn.innerHTML=btn.innerHTML.replace('Wishlisted','Wishlist');showToast('Removed');}
   saveWishlist();
 }
 function toggleWishlistPage(){showPage('wishlist');}
@@ -229,7 +229,7 @@ function renderWishlistPage(){
 
 // WHATSAPP
 function openWhatsApp(name){
-  const msg=`Hello Qubrix.Gear! 👋\n\nInterested in: *${name}*\n\nKindly confirm availability & price. 🙏`;
+  const msg=`Hello Qubrix.Gear!\n\nInterested in: *${name}*\n\nKindly confirm availability & price.`;
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
