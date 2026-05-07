@@ -239,10 +239,10 @@ footer{background:#0d0d0b;border-top:none;padding:56px 5vw 28px;}
   display:flex;align-items:center;justify-content:center;}
 .footer-desc{font-size:0.84rem;color:rgba(255,255,255,0.45);line-height:1.7;max-width:250px;}
 .footer-col-title{font-family:'Syne',sans-serif;font-size:0.73rem;font-weight:700;
-  letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px;}
+  letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);margin-bottom:16px;}
 .footer-links{list-style:none;}
-.footer-links li{margin-bottom:10px;}
-.footer-links a{font-size:0.86rem;color:rgba(255,255,255,0.5);transition:color 0.2s;cursor:pointer;}
+.footer-links li{margin-bottom:10px;color:rgba(255,255,255,0.7);font-size:0.78rem;letter-spacing:0.3px;}
+.footer-links a{font-size:0.78rem;color:rgba(255,255,255,0.5);transition:color 0.2s;cursor:pointer;letter-spacing:0.3px;}
 .footer-links a:hover{color:#ffffff;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;display:flex;
   align-items:center;justify-content:space-between;font-size:0.77rem;color:rgba(255,255,255,0.3);}
