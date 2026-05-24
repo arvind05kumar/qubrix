@@ -353,9 +353,22 @@ footer{background:#0d0d0b;border-top:none;padding:56px 5vw 28px;}
   .nav-search input:focus{width:100px;}
   .nav-right { gap: 6px; }
   .footer-grid{grid-template-columns:1fr;}
-  .hero-title{font-size:2.2rem;}
-  .hero-controls{left:5vw; bottom:20px;}
-  .hero-arrows{right:5vw; bottom:20px;}
+  .hero{height:25vh; min-height:200px;}
+  .hero-slide{padding:0 4vw;}
+  .hero-content{max-width:100%;}
+  .hero-title{font-size:1.3rem;}
+  .hero-sub{font-size:0.8rem; margin-bottom:16px;}
+  .hero-tag{font-size:0.65rem; padding:4px 10px; margin-bottom:12px;}
+  .hero-cta{margin-bottom:20px;}
+  .hero-stats{gap:20px; padding-top:12px;}
+  .hero-stat-val{font-size:1rem;}
+  .hero-stat-label{font-size:0.6rem;}
+  .hero-bg-emoji{font-size:clamp(4rem,12vw,8rem);}
+  .hero-controls{left:5vw; bottom:12px;}
+  .hero-arrows{right:5vw; bottom:12px;}
+  .hero-arrow{width:32px; height:32px; font-size:0.8rem;}
+  .hero-dot{width:6px; height:6px;}
+  .hero-dot.active{width:20px;}
   .pd-actions{flex-direction:column;}
   .pd-actions button{width:100%; justify-content:center;}
   .offer-card{padding:24px 20px;}
