@@ -353,7 +353,7 @@ footer{background:#0d0d0b;border-top:none;padding:56px 5vw 28px;}
   .nav-search input:focus{width:100px;}
   .nav-right { gap: 6px; }
   .footer-grid{grid-template-columns:1fr;}
-  .hero{height:25vh; min-height:200px;}
+  .hero{height:50vh; min-height:300px;}
   .hero-slide{padding:0 4vw;}
   .hero-content{max-width:100%;}
   .hero-title{font-size:1.3rem;}
