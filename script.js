@@ -17,8 +17,7 @@ const products=[
   {id:'privacy-glass',images:['images/Privacy Tempered Glass/1.jpg','images/Privacy Tempered Glass/2.png'],name:'Privacy Tempered Glass',category:'accessories',price:300,emoji:'',badge:'Universal',desc:'Premium privacy tempered glass for iPhone & Android. 9H hardness, anti-spy 45° filter, oleophobic coating.',specs:[['Hardness','9H'],['Type','Anti-spy'],['Compat.','iPhone & Android'],['Thickness','0.33mm']]},
   {id:'earpods-typec',images:['images/Apple EarPods (Type-C)/2.png.webp','images/Apple EarPods (Type-C)/3.jpg.webp'],name:'Apple EarPods (Type-C)',category:'earphones',price:1000,emoji:'',badge:'Type-C',desc:'Apple EarPods USB-C — crisp Apple audio with inline remote and mic. For all USB-C iPhones and iPads.',specs:[['Connector','USB-C'],['Brand','Apple'],['Mic','Built-in inline'],['Compat.','USB-C']]},
   {id:'earpods-lightning',images:['images/Apple EarPods (Lightning)/2.jpeg.webp'],name:'Apple EarPods (Lightning)',category:'earphones',price:1000,emoji:'',badge:'Lightning',desc:'Apple EarPods Lightning — classic Apple sound for iPhone 14 and earlier, Lightning iPad.',specs:[['Connector','Lightning'],['Brand','Apple'],['Mic','Built-in inline'],['Compat.','Lightning']]},
-  {id:'wires',images:['images/Charging Wires (Type-C & Samsung)/1.jpg','images/Charging Wires (Type-C & Samsung)/02.jpg','images/Charging Wires (Type-C & Samsung)/2.jpg','images/Charging Wires (Type-C & Samsung)/3.jpg'],name:'Charging Wires (Type-C & Samsung)',category:'accessories',price:400,emoji:'',badge:'Multi-Pack',desc:'High-quality Type-C wires for Apple and Samsung. Fast charge, fast data, durable braided design.',specs:[['Types','Apple, Samsung'],['Speed','Fast Charge'],['Build','Braided'],['Price','₹400 each']]},
-  {id:'drone',images:['images/Drone with Camera/1.jpg','images/Drone with Camera/2.jpg','images/Drone with Camera/3.jpg'],name:'Drone with Camera',category:'drones',price:3000,emoji:'',badge:'Bestseller',desc:'Feature-packed camera drone — HD aerial photography, stable hover, one-key takeoff/landing, headless mode.',specs:[['Camera','HD'],['Flight','~15 min'],['Range','~100m'],['Features','Headless, Auto-hover']]}
+  {id:'wires',images:['images/Charging Wires (Type-C & Samsung)/1.jpg','images/Charging Wires (Type-C & Samsung)/02.jpg','images/Charging Wires (Type-C & Samsung)/2.jpg','images/Charging Wires (Type-C & Samsung)/3.jpg'],name:'Charging Wires (Type-C & Samsung)',category:'accessories',price:400,emoji:'',badge:'Multi-Pack',desc:'High-quality Type-C wires for Apple and Samsung. Fast charge, fast data, durable braided design.',specs:[['Types','Apple, Samsung'],['Speed','Fast Charge'],['Build','Braided'],['Price','₹400 each']]}
 ];
 
 const WA='917488900188';
@@ -28,7 +27,7 @@ let currentFilter='all';
 
 // MARQUEE
 function buildMarquee(){
-  const items=['Drone with Camera — ₹3,000','AirPods Pro 2 — ₹2,599','Apple Watch Series 11 — From ₹1,500','Buy AirPods → Silicon Cover FREE!','WhatsApp Order — Instant Reply!','100% Genuine Products','Samsung Galaxy Watch — ₹2,499'];
+  const items=['AirPods Pro 2 — ₹2,599','Apple Watch Series 11 — From ₹1,500','Buy AirPods → Silicon Cover FREE!','WhatsApp Order — Instant Reply!','100% Genuine Products','Samsung Galaxy Watch — ₹2,499'];
   const t=document.getElementById('marquee-track');
   t.innerHTML=[...items,...items].map(i=>`<span class="marquee-item"><span class="m-dot"></span>${i}</span>`).join('');
 }
@@ -43,7 +42,6 @@ function buildBrands(){
 // HERO
 const heroData=[
   {id:'airpods-pro-2',emoji:'',tag:'Most Popular',title:'AirPods\n<span>Pro 2</span>',sub:'Adaptive ANC, Spatial Audio, USB-C charging. Experience sound like never before.',price:'₹2,599',stats:[{v:'ANC',l:'Noise Cancelling'},{v:'H2',l:'Apple Chip'},{v:'36h+',l:'Total Battery'}]},
-  {id:'drone',emoji:'',tag:'Bestseller',title:'Drone with\n<span>Camera</span>',sub:'HD aerial photography, stable hover, one-key controls. Your next adventure awaits!',price:'₹3,000',stats:[{v:'HD',l:'Camera'},{v:'~15min',l:'Flight Time'},{v:'~100m',l:'Range'}]},
   {id:'samsung-watch',emoji:'',tag:'Premium Pick',title:'Samsung\n<span>Galaxy Watch</span>',sub:'Health tracking, AMOLED display, 40-hour battery. Smart living, redefined.',price:'₹2,499',stats:[{v:'AMOLED',l:'Display'},{v:'40hrs',l:'Battery'},{v:'5ATM',l:'Water Proof'}]},
 ];
 let hIdx=0,hTimer=null;
