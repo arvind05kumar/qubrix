@@ -17,21 +17,25 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo" onclick="window.location.href='index.html'">
-      <img src="logo.png" alt="Qubrix Logo" style="height: 40px; margin-right: 8px;">
-      Qubrix.Gear
+    <div class="nav-left-group">
+      <div class="nav-menu-btn" id="mobile-menu-btn" onclick="toggleMobileMenu(event)">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="display: block;">
+          <circle cx="12" cy="5" r="1.5" fill="currentColor"/>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+          <circle cx="12" cy="19" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="nav-logo" onclick="window.location.href='index.html'">
+        <img src="logo.png" alt="Qubrix Logo" style="height: 40px; margin-right: 8px;">
+        <span class="logo-text">Qubrix<span class="logo-purple">.Gear</span></span>
+      </div>
     </div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="index.html">All Products</a></li>
+      <li><a href="products.html">All Products</a></li>
     </ul>
     <div class="nav-right">
-      <div class="icon-btn" onclick="window.location.href='index.html'" title="Wishlist">
-        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path
-            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-        </svg>
-      </div>
+
       <div class="icon-btn" onclick="window.location.href='index.html'" title="Cart">
         <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
@@ -87,7 +91,7 @@
       <div>
         <div class="footer-logo-row" onclick="window.location.href='index.html'">
           <img src="logo.png" alt="Qubrix Logo" style="height: 40px; margin-right: 8px;">
-          Qubrix.Gear
+          <span class="logo-text">Qubrix<span class="logo-purple">.Gear</span></span>
         </div>
         <p class="footer-desc">Your go-to technical store for premium gadgets, accessories & smart devices. Est. 2026.
         </p>
@@ -95,10 +99,10 @@
       <div>
         <div class="footer-col-title">Shop</div>
         <ul class="footer-links">
-          <li><a href="index.html">All Products</a></li>
-          <li><a href="index.html">Earphones</a></li>
-          <li><a href="index.html">Watches</a></li>
-          <li><a href="index.html">Accessories</a></li>
+          <li><a href="products.html">All Products</a></li>
+          <li><a href="products.html?filter=earphones">Earphones</a></li>
+          <li><a href="products.html?filter=watches">Watches</a></li>
+          <li><a href="products.html?filter=accessories">Accessories</a></li>
         </ul>
       </div>
       <div>
