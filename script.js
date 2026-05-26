@@ -2,7 +2,7 @@ const WA_SVG = `<svg width="14" height="14" fill="white" viewBox="0 0 24 24"><pa
 
 const products = [
 
-  { id: 'airpods-pro-2', images: ['images/AirPods Pro 2 (16th Gen)/1.png', 'images/AirPods Pro 2 (16th Gen)/2.jpg', 'images/AirPods Pro 2 (16th Gen)/3.webp'], name: 'AirPods Pro 2 (Type C)', category: 'earphones', price: 2499, emoji: '', badge: 'Hot', desc: 'AirPods Pro 2 with adaptive ANC, Transparency mode, Personalized Spatial Audio, and USB-C charging. Best-in-class sound.', specs: [['Type', 'In-ear ANC'], ['Chip', 'H2'], ['Battery', '6h + 30h case'], ['BT', '5.3']] },
+  { id: 'airpods-pro-2', images: ['images/AirPods Pro 2 (16th Gen)/1.png', 'images/AirPods Pro 2 (16th Gen)/2.jpg', 'images/AirPods Pro 2 (16th Gen)/3.webp'], name: 'AirPods Pro 2 (Type C)', category: 'earphones', price: 2599, emoji: '', badge: 'Hot', desc: 'AirPods Pro 2 with adaptive ANC, Transparency mode, Personalized Spatial Audio, and USB-C charging. Best-in-class sound.', specs: [['Type', 'In-ear ANC'], ['Chip', 'H2'], ['Battery', '6h + 30h case'], ['BT', '5.3']] },
   { id: 'airpods-4-anc', images: ['images/AirPods 4 ANC/1.png', 'images/AirPods 4 ANC/2.jpg', 'images/AirPods 4 ANC/3.jpg'], name: 'AirPods 4 ANC', category: 'earphones', price: 3000, emoji: '', badge: 'New', desc: 'AirPods 4 with Active Noise Cancellation — most advanced open-ear design. Personalized spatial audio with dynamic head tracking.', specs: [['Type', 'Open-ear ANC'], ['Chip', 'H2'], ['Battery', '5h + 30h'], ['BT', '5.3']] },
   { id: 'airpods-bundle', images: ['images/Airpods Combo/1.png', 'images/Airpods Combo/2.png', 'images/Airpods Combo/3.webp', 'images/Airpods Combo/4.jpg'], name: 'Airpods Pro + Pro2 + Case Combo', category: 'earphones', price: 3000, emoji: '', badge: 'Bundle', desc: 'Special combo — AirPods 2, AirPods Pro 2, and Silicon Protective Case. Best value bundle!', specs: [['Includes', 'AirPods Pro 2'], ['', 'AirPods 2nd Gen'], ['', 'Silicon Cover'], ['Value', 'Huge Savings']] },
   { id: 'airpods-2nd', images: ['images/AirPods 2nd Gen/1.png', 'images/AirPods 2nd Gen/2.png', 'images/AirPods 2nd Gen/3.png'], name: 'AirPods 2nd Gen', category: 'earphones', price: 2000, emoji: '', badge: 'Popular', desc: 'Apple AirPods 2nd Generation with H1 chip, crystal clear audio, seamless Apple device connectivity. Up to 5 hours listening time.', specs: [['Type', 'In-ear Wireless'], ['Chip', 'H1'], ['Battery', '5h + 24h case'], ['BT', '5.0']] },
@@ -107,7 +107,7 @@ function renderCard(p, container) {
       </div>
     </div>`;
   card.onclick = (e) => {
-    if (!e.target.closest('.add-cart-btn') && !e.target.closest('.wishlist-btn')) {
+    if (!e.target.closest('.add-cart-btn')) {
       openProduct(p.id);
     }
   };
@@ -310,3 +310,83 @@ buildBrands();
 buildHeroSlider();
 renderTopProducts();
 updateCartUI();
+
+// MOBILE MENU NAVIGATION
+function toggleMobileMenu(e) {
+  if (e) e.stopPropagation();
+  const navLinks = document.querySelector('.nav-links');
+  if (navLinks) {
+    navLinks.classList.toggle('open');
+  }
+}
+
+// Close mobile menu if clicked outside
+document.addEventListener('click', (e) => {
+  const navLinks = document.querySelector('.nav-links');
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  if (navLinks && navLinks.classList.contains('open')) {
+    if (!navLinks.contains(e.target) && (!menuBtn || !menuBtn.contains(e.target))) {
+      navLinks.classList.remove('open');
+    }
+  }
+});
+
+// URL PARAMETER PARSER ON INIT
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const filterParam = params.get('filter');
+  const searchParam = params.get('search');
+
+  // Handle mobile search expansion/collapse
+  const searchContainer = document.querySelector('.nav-search');
+  const searchInput = document.getElementById('main-search');
+
+  if (searchContainer && searchInput) {
+    searchContainer.addEventListener('click', (e) => {
+      if (window.innerWidth <= 640 && !searchContainer.classList.contains('expanded')) {
+        searchContainer.classList.add('expanded');
+        searchInput.focus();
+        e.stopPropagation();
+      }
+    });
+
+    searchInput.addEventListener('blur', () => {
+      if (window.innerWidth <= 640 && !searchInput.value.trim()) {
+        searchContainer.classList.remove('expanded');
+      }
+    });
+
+    if (searchParam) {
+      searchContainer.classList.add('expanded');
+    }
+  }
+
+  if (window.location.pathname.includes('products.html')) {
+    // We are on products page
+    showPage('all-products');
+
+    if (filterParam) {
+      currentFilter = filterParam;
+      // Also update the filter chip UI
+      document.querySelectorAll('.filter-chip').forEach(chip => {
+        const chipText = chip.textContent.trim().toLowerCase();
+        if (chipText === filterParam.toLowerCase() || (filterParam === 'all' && chipText === 'all')) {
+          chip.classList.add('active');
+        } else {
+          chip.classList.remove('active');
+        }
+      });
+      renderAllProducts(currentFilter);
+    } else if (searchParam) {
+      const searchInput = document.getElementById('main-search');
+      if (searchInput) {
+        searchInput.value = searchParam;
+        handleSearch(searchParam);
+        // Focus and move cursor to end
+        searchInput.focus();
+        const len = searchInput.value.length;
+        searchInput.setSelectionRange(len, len);
+      }
+    }
+  }
+});
