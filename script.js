@@ -183,7 +183,7 @@ function openProduct(id) {
         </div>
       </div>
     </div>`;
-  document.getElementById('pd-back').onclick = () => showPage('all-products');
+  document.getElementById('pd-back').onclick = () => showPage(window.location.pathname.includes('products') ? 'all-products' : 'home');
   showPage('product'); window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -253,11 +253,26 @@ function openWhatsApp(name) {
 
 // SEARCH
 function handleSearch(val) {
-  if (!val.trim()) { if (document.getElementById('page-all-products').classList.contains('active')) renderAllProducts(currentFilter); return; }
-  const q = val.toLowerCase(); showPage('all-products');
-  const g = document.getElementById('all-products-grid'); g.innerHTML = '';
+  const isProductsPage = window.location.pathname.includes('products');
+  if (!isProductsPage) {
+    if (val.trim()) {
+      window.location.href = `products.html?search=${encodeURIComponent(val)}`;
+    }
+    return;
+  }
+  if (!val.trim()) {
+    const allPage = document.getElementById('page-all-products');
+    if (allPage && allPage.classList.contains('active')) renderAllProducts(currentFilter);
+    return;
+  }
+  const q = val.toLowerCase();
+  showPage('all-products');
+  const g = document.getElementById('all-products-grid');
+  if (!g) return;
+  g.innerHTML = '';
   const res = products.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
-  document.getElementById('all-count').textContent = `${res.length} result${res.length !== 1 ? 's' : ''} for "${val}"`;
+  const countEl = document.getElementById('all-count');
+  if (countEl) countEl.textContent = `${res.length} result${res.length !== 1 ? 's' : ''} for "${val}"`;
   res.forEach(p => renderCard(p, g));
 }
 
@@ -332,7 +347,7 @@ document.addEventListener('click', (e) => {
 });
 
 // URL PARAMETER PARSER ON INIT
-window.addEventListener('DOMContentLoaded', () => {
+function initPage() {
   const params = new URLSearchParams(window.location.search);
   const filterParam = params.get('filter');
   const searchParam = params.get('search');
@@ -361,7 +376,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  if (window.location.pathname.includes('products.html')) {
+  if (window.location.pathname.includes('products')) {
     // We are on products page
     showPage('all-products');
 
@@ -387,6 +402,14 @@ window.addEventListener('DOMContentLoaded', () => {
         const len = searchInput.value.length;
         searchInput.setSelectionRange(len, len);
       }
+    } else {
+      renderAllProducts(currentFilter);
     }
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', initPage);
+} else {
+  initPage();
+}
